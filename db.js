@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 function connectDB() {
-  mongoose.connect(
-    "mongodb+srv://abhinavmidha0824:j89pjRGEf4Waxyav@cluster0.7sozyvy.mongodb.net/",
-    { useUnifiedTopology: true, useNewUrlParser: true }
-  );
+  mongoose.connect(process.env.MONGODB_URI, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+  });
 
   const connection = mongoose.connection;
 
